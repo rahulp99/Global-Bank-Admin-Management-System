@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminLoginService } from 'src/app/services/admin-login.service';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.css']
+  styleUrls: ['./admin-login.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AdminLoginComponent implements OnInit {
-  userValid: boolean = false;
+  userValid: boolean = true;
   processing: Boolean = false;
   constructor(private adminLoginService: AdminLoginService, private router: Router) { }
 
@@ -29,6 +31,7 @@ export class AdminLoginComponent implements OnInit {
       console.log(res);
       if(res=='Failure'){
         this.userValid = false;
+        this.processing = false;
       } else{
         this.userValid = true;
         this.adminLoginService.setToken(res);
