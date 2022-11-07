@@ -1,0 +1,28 @@
+<body>
+<div class="center">
+    <h1>Login</h1>
+    <div>
+        <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="loginSubmitted()">
+
+        <div class="txt_field">
+            <label for="userName" class="form-label">Username</label>
+            <input type="text" class  = "form-control" id="userName" formControlName="userName">
+            <span></span>
+            <div class="form-text text-danger" *ngIf="userNameGet.errors?.['required'] && (userNameGet.dirty || userNameGet.touched)">Username is required</div>
+
+        </div>
+
+        <div class="txt_field">
+            <label for="pwd" class="form-label" >Password</label>
+            <input type="password" class  = "form-control" id="pwd" formControlName="pwd">
+            <div class="form-text text-danger" *ngIf="pwdGet.errors?.['required'] && (pwdGet.dirty || pwdGet.touched)">Password is required</div>
+            <div class="form-text text-danger" *ngIf="pwdGet.errors?.['minlength'] || pwdGet.errors?.['maxlength'] &&(pwdGet.touched || pwdGet.dirty)">Password should be atleast 6 and at max 15 characters long.</div>
+        </div>
+
+        <input type="submit" value="Login" [disabled]="loginForm.invalid">
+        
+        </form>
+    </div>
+</div>
+          
+</body>
