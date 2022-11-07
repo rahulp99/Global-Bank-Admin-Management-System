@@ -9,7 +9,8 @@ import { AdminLoginService } from 'src/app/services/admin-login.service';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-
+  userValid: boolean = false;
+  processing: Boolean = false;
   constructor(private adminLoginService: AdminLoginService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,10 +21,10 @@ export class AdminLoginComponent implements OnInit {
     pwd: new FormControl("",[Validators.required, Validators.minLength(6),Validators.maxLength(15)])
   });
 
-userValid: boolean = false;
 
   loginSubmitted(){
     console.log(this.loginForm);
+    this.processing = true;
     this.adminLoginService.loginUser([this.loginForm.value.userName!,this.loginForm.value.pwd!]).subscribe(res=>{
       console.log(res);
       if(res=='Failure'){
