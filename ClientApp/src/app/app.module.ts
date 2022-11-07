@@ -7,8 +7,8 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 
 import {HttpClientModule} from '@angular/common/http';
 import { AdminLoginService } from './services/admin-login.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,

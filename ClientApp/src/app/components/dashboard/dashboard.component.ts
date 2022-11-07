@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminLoginService } from '../services/admin-login.service';
+import { AdminLoginService } from '../../services/admin-login.service';
 
 @Component({
   selector: 'app-dashboard',
