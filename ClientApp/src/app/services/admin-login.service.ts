@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {BehaviorSubject,using} from 'rxjs'; 
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminLoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   baseServerUrl = "https://localhost:44393/api/";
   jwtHelperService = new JwtHelperService();
@@ -43,5 +44,9 @@ export class AdminLoginService {
 
     removeToken(){
       localStorage.removeItem("access_token");
-    }
+  }
+    logOut(){
+    this.removeToken();
+    this.router.navigateByUrl("/login");
+  }
 }

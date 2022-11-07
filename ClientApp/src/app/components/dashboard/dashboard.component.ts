@@ -9,14 +9,13 @@ import { AdminLoginService } from '../../services/admin-login.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private adminLoginService: AdminLoginService, private router: Router) { }
+  constructor(private adminLoginService: AdminLoginService) { }
 
   ngOnInit(): void {
   }
 
-  logOut(){
-    this.adminLoginService.removeToken();
-    this.router.navigateByUrl("/login");
+  logOut() {
+    this.adminLoginService.logOut();
   }
 
 }
