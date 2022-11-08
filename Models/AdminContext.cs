@@ -4,9 +4,10 @@ namespace Global_Bank_Admin_Management_System.Models
 {
     public class AdminContext: DbContext
     {
-        public AdminContext(DbContextOptions options): base(options)
+        public readonly IConfiguration _config;
+        public AdminContext(DbContextOptions options, IConfiguration config) : base(options)
         {
-
+            _config = config;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,6 +20,12 @@ namespace Global_Bank_Admin_Management_System.Models
 
         }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Branch> Branches { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(_config.GetConnectionString("MyDBConnection"));
+        }
     }
     
 }
