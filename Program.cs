@@ -24,40 +24,47 @@ namespace Global_Bank_Admin_Management_System
 
             builder.Services.AddDbContext<AdminContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyDBConnection")));
 
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
-            {
-                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = "localhost",
-                    ValidAudience = "localhost",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtConfig:Key"])),
-                    ClockSkew = TimeSpan.Zero
-                };
-            });
+            //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
+            //{
+            //    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = true,
+            //        ValidateLifetime = true,
+            //        ValidateIssuerSigningKey = true,
+            //        ValidIssuer = "localhost",
+            //        ValidAudience = "localhost",
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtConfig:Key"])),
+            //        ClockSkew = TimeSpan.Zero
+            //    };
+            //});
 
 
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSwaggerGen();
             var app = builder.Build();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bank API V1");
+            });
+
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             // app.UseStaticFiles();
 
             app.UseRouting();
             app.UseCors("AllowOrigin");
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
