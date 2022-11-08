@@ -1,0 +1,79 @@
+<!-- Header navigation -->
+<nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark">
+  <div class="navbar-icon">
+    <i class="material-icons" style="color: white">account_balance </i>
+    <span style="padding-right: 15px"></span>
+  </div>
+
+  <a class="navbar-brand" routerLink="/dashboard">GBAM System</a>
+  <button
+    (click)="toggleNav()"
+    class="navbar-toggler navbar-toggler-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarResponsive"
+    aria-controls="navbarResponsive"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div
+    class="collapse navbar-collapse"
+    id="navbarResponsive"
+    [ngClass]="{ show: navToggle }"
+  >
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            type="button"
+            class="btn"
+            id="customerDropdown"
+            ngbDropdownToggle
+            style="color: white"
+          >
+            Customer
+            <span class="sr-only">(current)></span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="customerDropdown">
+            <a routerLink="/customeradd"
+              ><button ngbDropdownItem>Add Customer</button></a
+            >
+            <a routerLink="/customerdisplay"
+              ><button ngbDropdownItem>Display Customer</button></a
+            >
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            type="button"
+            class="btn"
+            id="branchDropdown"
+            ngbDropdownToggle
+            style="color: white"
+          >
+            Branch
+          </button>
+          <div ngbDropdownMenu aria-labelledby="branchDropdown">
+            <a routerLink="/branchadd"
+              ><button ngbDropdownItem>Add Branch</button></a
+            >
+            <a routerLink="/branchdisplay"
+              ><button ngbDropdownItem>Display Branch</button></a
+            >
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto navbar-logout">
+      <li class="nav-item pointer">
+        <a href="javascript:void(0)" class="nav-link" (click)="logOut()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

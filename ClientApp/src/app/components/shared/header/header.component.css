@@ -1,0 +1,12 @@
+.navbar-brand {
+  color: white !important;
+}
+.pointer {
+  cursor: pointer;
+}
+.navbar-fixed-top .navbar-icon {
+  padding-left: 30px;
+}
+.navbar-logout {
+  padding-right: 30px;
+}

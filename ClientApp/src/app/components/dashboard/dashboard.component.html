@@ -1,0 +1,58 @@
+<app-header></app-header>
+<main role="main" class="container">
+  <div class="jumbotron">
+    <h1>Welcome to Global Bank Admin Management System!</h1>
+    <br />
+    <hr class="my-4" />
+    <p class="lead">Please select an operation to proceed</p>
+  </div>
+  <h2 style="text-align: center">Customer Operations</h2>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <li class="list-group-item" style="margin-bottom: 10px">
+        <div class="row" style="padding-top: 10">
+          <div class="col-md-5 offset-md-1">
+            <a routerLink="/customerdisplay"
+              ><button class="btn btn-primary btn-block" type="button">
+                Display All Customers
+              </button></a
+            >
+          </div>
+          <div class="col-md-5">
+            <a routerLink="/customeradd"
+              ><button class="btn btn-primary btn-block" type="button">
+                Add New Customer
+              </button></a
+            >
+          </div>
+        </div>
+      </li>
+    </div>
+  </div>
+  <hr class="my-4" />
+  <h2 style="text-align: center">Branch Operations</h2>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <li class="list-group-item" style="margin-bottom: 10px">
+        <div class="row" style="padding-top: 10">
+          <div class="col-md-5 offset-md-1">
+            <a routerLink="/branchdisplay"
+              ><button class="btn btn-success btn-block" type="button">
+                Display All Branches
+              </button></a
+            >
+          </div>
+          <div class="col-md-5">
+            <a routerLink="/branchadd"
+              ><button class="btn btn-success btn-block" type="button">
+                Add New Branches
+              </button></a
+            >
+          </div>
+        </div>
+      </li>
+    </div>
+  </div>
+</main>
