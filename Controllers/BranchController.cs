@@ -27,6 +27,19 @@ namespace Global_Bank_Admin_Management_System.Controllers
             return Ok(branches);
         }
 
+        [Route("getonebranch/{id}")]
+        [HttpGet]
+        public IActionResult GetOneBranch(int id)
+        {
+            var branch =  _context.Branches
+                              .FirstOrDefault(x => x.BranchId == id);
+            if (branch == null)
+            {
+                return NotFound();
+            }
+            return Ok(branch);
+        }
+
         [Route("deletebranch/{id}")]
         [HttpDelete]
         public IActionResult DeleteBranch(int id)
