@@ -1,4 +1,5 @@
-body {
+:host {
+  display: inline;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
   /* Chrome 10-25, Safari 5.1-6 */

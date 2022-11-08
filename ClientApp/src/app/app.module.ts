@@ -11,7 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutComponent } from './components/shared/layout/layout.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import { FooteronlylayoutComponent } from './components/shared/footeronlylayout/footeronlylayout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DashboardComponent,
     LayoutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FooteronlylayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-     MdbDropdownModule,
-     NgbModule
+    NgbModule
   ],
   providers: [AdminLoginService],
   bootstrap: [AppComponent]
