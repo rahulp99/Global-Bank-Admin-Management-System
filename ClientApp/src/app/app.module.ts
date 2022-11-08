@@ -13,6 +13,10 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { FooteronlylayoutComponent } from './components/shared/footeronlylayout/footeronlylayout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { BranchesListComponent } from './components/branches/branches-list/branches-list.component';
+import { EditBranchComponent } from './components/branches/edit-branch/edit-branch.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    FooteronlylayoutComponent
+    FooteronlylayoutComponent,
+    BranchesListComponent,
+    EditBranchComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RouterModule,
+    CommonModule
   ],
   providers: [AdminLoginService],
   bootstrap: [AppComponent]

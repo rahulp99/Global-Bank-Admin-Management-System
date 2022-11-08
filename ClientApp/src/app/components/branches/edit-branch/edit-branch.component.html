@@ -4,18 +4,18 @@
             <div class="mb-3">
                 <label for="" class="form-label">Id</label>
                 <input type="number" class="form-control" id="id" readonly
-                name="id" [(ngModel)]="branchDetails.id">
+                name="id" [(ngModel)]="branchDetails.branchId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Name</label>
               <input type="text" class="form-control" id="name"
-              name="name" [(ngModel)]="branchDetails.name">
+              name="name" [(ngModel)]="branchDetails.branchName">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Address</label>
               <input type="text" class="form-control" id="address"
-              name="address" [(ngModel)]="branchDetails.address">
+              name="address" [(ngModel)]="branchDetails.branchAddress">
             </div>
-            <button type="button" class="btn btn-danger" (click)="deleteBranch(branchDetails.id)">Confirm Delete</button>
+            <button type="button" class="btn btn-danger" (click)="deleteBranch(branchDetails.branchId)">Confirm Delete</button>
           </form>
 </div>

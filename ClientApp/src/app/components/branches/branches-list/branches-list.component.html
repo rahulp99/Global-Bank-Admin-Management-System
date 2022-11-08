@@ -11,10 +11,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let branch of branches">
-                <td>{{branch.id}}</td>
-                <td>{{branch.name}}</td>
-                <td>{{branch.address}}</td>
-                <td><a [routerLink]="['/branches', 'delete', branch.id]">Delete</a></td>
+                <td>{{branch.branchId}}</td>
+                <td>{{branch.branchName}}</td>
+                <td>{{branch.branchAddress}}</td>
+                <td><a routerLink='/branch/deletebranch/{{branch.branchId}}'>Delete</a></td>
             </tr>
         </tbody>
     </table>

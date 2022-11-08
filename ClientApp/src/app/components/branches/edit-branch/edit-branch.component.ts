@@ -10,10 +10,10 @@ import { Branch } from 'src/app/models/branch.model';
 export class EditBranchComponent implements OnInit {
 
   branchDetails: Branch = {
-    id: 0,
-    name: '',
-    address: '',
-    isdeleted: 0
+    branchId: 0,
+    branchName: '',
+    branchAddress: '',
+    isDeleted: 0
   };
   constructor(private route: ActivatedRoute, private branchService: BranchesService, private router: Router) { }
 
@@ -35,11 +35,11 @@ export class EditBranchComponent implements OnInit {
 
   }
 
-  deleteBranch(id: string) {
+  deleteBranch(id: number) {
     this.branchService.deleteBranch(id)
     .subscribe({
       next: (response) => {
-        this.router.navigate(['branches']);
+        this.router.navigate(['branch']);
       }
     });
   }

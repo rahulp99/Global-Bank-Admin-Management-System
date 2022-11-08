@@ -6,6 +6,8 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
 import { AuthGuard } from './services/auth.guard';
 import { FooteronlylayoutComponent } from './components/shared/footeronlylayout/footeronlylayout.component';
 import { LayoutComponent } from './components/shared/layout/layout.component';
+import { BranchesListComponent } from './components/branches/branches-list/branches-list.component';
+import { EditBranchComponent } from './components/branches/edit-branch/edit-branch.component';
 
 const routes: Routes = [
   {
@@ -28,13 +30,23 @@ const routes: Routes = [
     ],
     canActivate:[AuthGuard]
   },
+
+  {
+    path:'branch',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: BranchesListComponent },
+      { path: 'deletebranch/:id', component: EditBranchComponent }
+    ],
+    canActivate:[AuthGuard]
+  },
   {
     path:"**",
     component: LayoutComponent,
     children: [
       { path: '', component: PageNotFoundComponent }
     ] 
-  }
+  },
   
 ];
 

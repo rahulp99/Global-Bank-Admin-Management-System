@@ -10,17 +10,18 @@ import { Branch } from '../models/branch.model';
 export class BranchesService {
 
   baseApiUrl: string = environment.baseApiUrl;
+  //baseApiUrl: string = 'https://localhost:44393';
   constructor(private http: HttpClient) { }
 
   getAllBranches(): Observable<Branch[]>{
-    return this.http.get<Branch[]>(this.baseApiUrl + '/api/branches');
+    return this.http.get<Branch[]>(this.baseApiUrl + '/api/branch/getbranch');
   }
 
   getBranch(id: string): Observable<Branch> {
-    return this.http.get<Branch>(this.baseApiUrl + '/api/branches/' + id);
+    return this.http.get<Branch>(this.baseApiUrl + '/api/branch/getonebranch/' + id);
   }
 
-  deleteBranch(id: string): Observable<Branch>{
-    return this.http.delete<Branch>(this.baseApiUrl + '/api/branches/' + id);
+  deleteBranch(id: number): Observable<Branch>{
+    return this.http.delete<Branch>(this.baseApiUrl + '/api/branch/deletebranch/' + id);
   }
 }
