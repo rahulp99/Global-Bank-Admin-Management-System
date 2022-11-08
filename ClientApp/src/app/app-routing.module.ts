@@ -4,11 +4,16 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { AuthGuard } from './services/auth.guard';
+import { FooteronlylayoutComponent } from './components/shared/footeronlylayout/footeronlylayout.component';
+import { LayoutComponent } from './components/shared/layout/layout.component';
 
 const routes: Routes = [
   {
     path:'login',
-    component: AdminLoginComponent
+    component: FooteronlylayoutComponent,
+    children: [
+      { path: '', component: AdminLoginComponent },
+    ]
   },
   {
     path: '',
@@ -17,12 +22,18 @@ const routes: Routes = [
   },
   {
     path:'dashboard',
-    component: DashboardComponent,
+    component: LayoutComponent,
+    children: [
+      { path: '', component: DashboardComponent }
+    ],
     canActivate:[AuthGuard]
   },
   {
     path:"**",
-    component: PageNotFoundComponent
+    component: LayoutComponent,
+    children: [
+      { path: '', component: PageNotFoundComponent }
+    ] 
   }
   
 ];

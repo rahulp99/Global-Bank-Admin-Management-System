@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AdminLoginService } from '../../services/admin-login.service';
 
 @Component({
@@ -8,10 +7,13 @@ import { AdminLoginService } from '../../services/admin-login.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  loggedIn$ = false;
 
   constructor(private adminLoginService: AdminLoginService) { }
 
   ngOnInit(): void {
+    this.loggedIn$ = this.adminLoginService.isLoggedIn();
+    console.log(this.loggedIn$);
   }
 
   logOut() {
