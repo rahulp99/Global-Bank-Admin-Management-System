@@ -41,16 +41,23 @@ namespace Global_Bank_Admin_Management_System
 
 
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSwaggerGen();
             var app = builder.Build();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bank API V1");
+            });
+
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             // app.UseStaticFiles();
 
