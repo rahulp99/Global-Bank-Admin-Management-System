@@ -1,0 +1,45 @@
+
+<div class="container">
+    <h1>Enter Customer Account Details</h1>
+    <table>
+        <tr>
+            <td>
+                <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+                    <div>
+                        <label>CustomerNo</label>
+                        <input type="text" name="customerNo" id="customerNo" [(ngModel)]="customer.customerNumber">
+                    </div>
+                    <div>
+                        <label>BranchId:</label>
+                        <input type="text" name="branchId" id="branchId" [(ngModel)]="customer.branchId">
+
+                    </div>
+                    <div>
+                        <label>Balance</label>
+                        <input type="text" name="balance" id="balance" [(ngModel)]="customer.openingBalance">
+                    </div>
+                    <div>
+                        <label>OpeningDate</label>
+                        <input type="text" name="openingDate" id="openingDate"
+                            [(ngModel)]="customer.accountOpeningDate">
+                    </div>
+
+                    <div>
+                        <label>AccountType</label>
+                        <input type="text" name="accountType" id="accountType" [(ngModel)]="customer.accountType">
+                    </div>
+                    <div>
+                        <label>AccountStatus</label>
+                        <input type="text" name="accountStatus" id="accountStatus" [(ngModel)]="customer.accountStatus">
+                    </div>
+
+                    <div class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </td>
+
+        </tr>
+    </table>
+</div>

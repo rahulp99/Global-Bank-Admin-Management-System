@@ -9,6 +9,8 @@ import { LayoutComponent } from './components/shared/layout/layout.component';
 import { BranchesListComponent } from './components/branches/branches-list/branches-list.component';
 import { EditBranchComponent } from './components/branches/edit-branch/edit-branch.component';
 import { AddBranchComponent } from './components/branches/add-branch/add-branch.component';
+import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
+import { DisplayCustomerComponent } from './components/customer/display-customer/display-customer.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,19 @@ const routes: Routes = [
     ],
     canActivate:[AuthGuard]
   },
+
+  { path: 'customersadd', component: LayoutComponent,
+  children: [
+    { path: '', component: AddCustomerComponent }
+  ],
+  canActivate:[AuthGuard]  
+},
+{ path: 'customers', component: LayoutComponent,
+  children: [
+    { path: '', component: DisplayCustomerComponent }
+  ],
+  canActivate:[AuthGuard]  
+},
 
   {
     path:"**",
