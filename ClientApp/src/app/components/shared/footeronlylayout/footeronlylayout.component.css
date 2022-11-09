@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    background: -webkit-linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
+  }
+  
+ 
+  

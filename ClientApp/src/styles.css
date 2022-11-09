@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body {
+  background: white;
+}
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.75rem;
+}
+
+.form-control.required {
+  border: 1px solid red;
+}
+
+.required {
+  color: red;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
