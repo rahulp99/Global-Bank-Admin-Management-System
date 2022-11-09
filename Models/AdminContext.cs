@@ -18,9 +18,16 @@ namespace Global_Bank_Admin_Management_System.Models
                 new Admin { AdminID = 2, UserName = "Admin2", Password = "admin2" },
                 new Admin { AdminID = 3, UserName = "Admin3", Password = "admin3" });
 
+
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Branch>().HasData(
+                new Branch { BranchId = 1, BranchName = "HYD", BranchAddress = "Hyderabad", isDeleted = 0 },
+                new Branch { BranchId = 2, BranchName = "BAN", BranchAddress = "Bangalore", isDeleted = 0 },
+                new Branch { BranchId = 3, BranchName = "CHN", BranchAddress = "Chennai", isDeleted = 1 });
+
         }
-        public DbSet<Admin> Admins { get; set; }
         public DbSet<Branch> Branches { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
