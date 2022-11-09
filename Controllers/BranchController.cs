@@ -62,5 +62,13 @@ namespace Global_Bank_Admin_Management_System.Controllers
             _context.SaveChanges();
             return Ok();
         }
+
+        [Route("getbranchids")]
+        [HttpGet]
+        public IActionResult GetBranchIDs()
+        {
+            var branchIDs = _context.Branches.Where(x => x.isDeleted == 0).Select(x => x.BranchId).ToList();
+            return Ok(branchIDs);
+        }
     }
 }

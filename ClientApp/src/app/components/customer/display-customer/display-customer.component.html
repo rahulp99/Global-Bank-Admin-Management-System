@@ -1,0 +1,42 @@
+<div class="container">
+
+    <h1>Customer Account Details</h1>
+    <div class="container">
+      <table>
+        <tr>
+  
+          <td>
+            <table class="list" id="employeeList">
+              <thead>
+                <tr>
+                  <!-- <th>AccountNo</th> -->
+                  <th>CustomerNo</th>
+                  <th>BranchId</th>
+                  <th>Balance</th>
+                  <th>OpeningDate</th>
+                  <th>AccountType</th>
+                  <th>AccountStatus</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+  
+              <tbody *ngFor="let customer of customers">
+                <!-- <td>{{customer.accountNumber}}</td> -->
+                <td>{{customer.customerNumber}}</td>
+                <td>{{customer.branchId}}</td>
+                <td>{{customer.openingBalance}}</td>
+                <td>{{customer.accountOpeningDate}}</td>
+                <td>{{customer.accountType}}</td>
+                <td>{{customer.accountStatus}}</td>
+                <td><a (click)="deleteCustomerAccount(customer.accountNumber.toString())">Delete</a></td>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <a routerLink="/customersadd" routerLinkActive="active" ariaCurrentWhenActive="page">Add</a>
+    </div>
+  
+  
+  </div>
+  

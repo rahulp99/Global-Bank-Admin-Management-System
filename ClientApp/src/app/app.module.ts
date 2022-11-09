@@ -18,6 +18,8 @@ import { CommonModule } from '@angular/common';
 import { BranchesListComponent } from './components/branches/branches-list/branches-list.component';
 import { EditBranchComponent } from './components/branches/edit-branch/edit-branch.component';
 import { AddBranchComponent } from './components/branches/add-branch/add-branch.component';
+import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
+import { DisplayCustomerComponent } from './components/customer/display-customer/display-customer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AddBranchComponent } from './components/branches/add-branch/add-branch.
     FooteronlylayoutComponent,
     BranchesListComponent,
     EditBranchComponent,
-    AddBranchComponent
+    AddBranchComponent,
+    AddCustomerComponent,
+    DisplayCustomerComponent
   ],
   imports: [
     BrowserModule,
