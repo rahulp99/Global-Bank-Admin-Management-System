@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BranchesListComponent } from './components/branches/branches-list/branches-list.component';
 import { EditBranchComponent } from './components/branches/edit-branch/edit-branch.component';
+import { AddBranchComponent } from './components/branches/add-branch/add-branch.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditBranchComponent } from './components/branches/edit-branch/edit-bran
     FooterComponent,
     FooteronlylayoutComponent,
     BranchesListComponent,
-    EditBranchComponent
+    EditBranchComponent,
+    AddBranchComponent
   ],
   imports: [
     BrowserModule,

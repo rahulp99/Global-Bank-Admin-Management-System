@@ -8,6 +8,7 @@ import { FooteronlylayoutComponent } from './components/shared/footeronlylayout/
 import { LayoutComponent } from './components/shared/layout/layout.component';
 import { BranchesListComponent } from './components/branches/branches-list/branches-list.component';
 import { EditBranchComponent } from './components/branches/edit-branch/edit-branch.component';
+import { AddBranchComponent } from './components/branches/add-branch/add-branch.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,16 @@ const routes: Routes = [
     ],
     canActivate:[AuthGuard]
   },
+
+  {
+    path:'branchadd',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: AddBranchComponent }
+    ],
+    canActivate:[AuthGuard]
+  },
+
   {
     path:"**",
     component: LayoutComponent,

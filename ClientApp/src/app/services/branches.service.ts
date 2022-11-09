@@ -21,6 +21,12 @@ export class BranchesService {
     return this.http.get<Branch>(this.baseApiUrl + '/api/branch/getonebranch/' + id);
   }
 
+  addBranch(branchDetails: Branch): Observable<any> {
+    const headers = {'content-type': 'application/json'};
+    const body = JSON.stringify(branchDetails);
+    return this.http.post(this.baseApiUrl + '/api/branch/addbranch/', body, {'headers': headers});
+  }
+
   deleteBranch(id: number): Observable<Branch>{
     return this.http.delete<Branch>(this.baseApiUrl + '/api/branch/deletebranch/' + id);
   }

@@ -57,6 +57,7 @@ namespace Global_Bank_Admin_Management_System.Controllers
         [HttpPost]
         public IActionResult AddBranch([FromBody]Branch branch)
         {
+            branch.BranchId = null;
             _context.Branches.Add(branch);
             _context.SaveChanges();
             return Ok();
