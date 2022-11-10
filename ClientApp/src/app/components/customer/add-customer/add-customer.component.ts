@@ -20,15 +20,22 @@ export class AddCustomerComponent implements OnInit {
     accountOpeningDate: new Date(),
     accountType: '',
     accountStatus: true
-
-
   }
+  customerNumbers: number[] | undefined;
+  branchIds: number[] | undefined;
+  accountTypes: string[] = ["Savings", "Current", "Fixed Deposit"];
   customerForm!: FormGroup;
 
 
 
 
   ngOnInit(): void {
+    this.customerService.getCustomerNumbers().subscribe(response => {
+      this.customerNumbers = response;
+    });
+    this.customerService.getBranchIDs().subscribe(response =>{
+      this.branchIds = response;
+    });
   }
 
   onSubmit() {

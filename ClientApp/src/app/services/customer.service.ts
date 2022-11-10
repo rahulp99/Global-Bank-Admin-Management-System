@@ -28,4 +28,12 @@ export class CustomerService {
 
   }
 
+  getCustomerNumbers(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/getcustomernumbers');
+  }
+
+  getBranchIDs(): Observable<any> {
+    return this.http.get<any>(environment.baseApiUrl + '/api/branch/getbranchids');
+  }
+
 }

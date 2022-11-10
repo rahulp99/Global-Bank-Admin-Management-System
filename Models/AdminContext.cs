@@ -25,6 +25,11 @@ namespace Global_Bank_Admin_Management_System.Models
                 new Branch { BranchId = 2, BranchName = "BAN", BranchAddress = "Bangalore", isDeleted = 0 },
                 new Branch { BranchId = 3, BranchName = "CHN", BranchAddress = "Chennai", isDeleted = 1 });
 
+            modelBuilder.Entity<CustomerDetails>().HasData(
+                new CustomerDetails { CustomerId = 10011, CustomerName = "Abhishek Mehra", Address = "Uttarakhand" },
+                new CustomerDetails { CustomerId = 10078, CustomerName = "Aditya Rathore", Address = "Delhi" },
+                new CustomerDetails { CustomerId = 8524, CustomerName = "Gautam Singh", Address = "Jharkhand" });
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Customer>().HasData(
                 new Customer { AccountNumber = 101, 
@@ -58,6 +63,7 @@ namespace Global_Bank_Admin_Management_System.Models
         public DbSet<Branch> Branches { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerDetails> CustomerDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

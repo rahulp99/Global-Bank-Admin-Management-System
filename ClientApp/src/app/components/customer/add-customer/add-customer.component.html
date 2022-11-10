@@ -1,45 +1,34 @@
-
-<div class="container">
-    <h1>Enter Customer Account Details</h1>
-    <table>
-        <tr>
-            <td>
-                <form #form="ngForm" (ngSubmit)="onSubmit()">
-
-                    <div>
-                        <label>CustomerNo</label>
-                        <input type="text" name="customerNo" id="customerNo" [(ngModel)]="customer.customerNumber">
-                    </div>
-                    <div>
-                        <label>BranchId:</label>
-                        <input type="text" name="branchId" id="branchId" [(ngModel)]="customer.branchId">
-
-                    </div>
-                    <div>
-                        <label>Balance</label>
-                        <input type="text" name="balance" id="balance" [(ngModel)]="customer.openingBalance">
-                    </div>
-                    <div>
-                        <label>OpeningDate</label>
-                        <input type="text" name="openingDate" id="openingDate"
-                            [(ngModel)]="customer.accountOpeningDate">
-                    </div>
-
-                    <div>
-                        <label>AccountType</label>
-                        <input type="text" name="accountType" id="accountType" [(ngModel)]="customer.accountType">
-                    </div>
-                    <div>
-                        <label>AccountStatus</label>
-                        <input type="text" name="accountStatus" id="accountStatus" [(ngModel)]="customer.accountStatus">
-                    </div>
-
-                    <div class="form-action-buttons">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </td>
-
-        </tr>
-    </table>
+<div class="container my-5">
+    <h1 class=""mb-3>Add Customer</h1>
+          <form #form="ngForm">
+            <div class="mb-3">
+                <label for="" class="form-label">Customer Number: </label>
+                <select [(ngModel)]="customer.customerNumber" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let custNumber of customerNumbers" value={{custNumber}}>{{custNumber}}</option>
+                  </select>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Branch ID: </label>
+              <select [(ngModel)]="customer.branchId" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let branchId of branchIds" value={{branchId}}>{{branchId}}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Opening Balance: </label>
+              <input type="text" class="form-control" id="openingBalance"
+              name="openingBal" [(ngModel)]="customer.openingBalance">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Opening Date: </label>
+                <input type="text" class="form-control" id="openingDate"
+                name="openingDate" [(ngModel)]="customer.accountOpeningDate">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Account Type: </label>
+                <select [(ngModel)]="customer.accountType" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let accountType of accountTypes" value={{accountType}}>{{accountType}}</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
+          </form>
 </div>
