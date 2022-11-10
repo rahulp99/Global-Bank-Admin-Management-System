@@ -8,10 +8,10 @@ import { Customer } from '../models/customer.model';
   providedIn: 'root'
 })
 export class CustomerService {
-  baseUrl = 'https://localhost:44393/api/Customer';
+  baseUrl = 'https://localhost:7282/api/Customer';
 
   constructor(private http: HttpClient) { }
-  
+
   getAllCustomerAccountDetails(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.baseUrl);
 
@@ -33,7 +33,7 @@ export class CustomerService {
   }
 
   getBranchIDs(): Observable<any> {
-    return this.http.get<any>(environment.baseApiUrl + '/api/branch/getbranchids');
+    return this.http.get<any>('https://localhost:7282' + '/api/branch/getbranchids');
   }
 
 }

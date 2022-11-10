@@ -1,34 +1,51 @@
 <div class="container my-5">
-    <h1 class=""mb-3>Add Customer</h1>
-          <form #form="ngForm">
-            <div class="mb-3">
-                <label for="" class="form-label">Customer Number: </label>
-                <select [(ngModel)]="customer.customerNumber" [ngModelOptions]="{standalone: true}">
-                    <option *ngFor="let custNumber of customerNumbers" value={{custNumber}}>{{custNumber}}</option>
-                  </select>
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Branch ID: </label>
-              <select [(ngModel)]="customer.branchId" [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let branchId of branchIds" value={{branchId}}>{{branchId}}</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Opening Balance: </label>
-              <input type="text" class="form-control" id="openingBalance"
-              name="openingBal" [(ngModel)]="customer.openingBalance">
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Opening Date: </label>
-                <input type="text" class="form-control" id="openingDate"
-                name="openingDate" [(ngModel)]="customer.accountOpeningDate">
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Account Type: </label>
-                <select [(ngModel)]="customer.accountType" [ngModelOptions]="{standalone: true}">
-                    <option *ngFor="let accountType of accountTypes" value={{accountType}}>{{accountType}}</option>
-                </select>
-            </div>
-            <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
-          </form>
+  <h1 class="" mb-3>Add Customer</h1>
+  <form #form="ngForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Customer Number: </label>
+      <select [(ngModel)]="customer.customerNumber" [ngModelOptions]="{standalone: true}"
+        style="width: 850px;height: 35px; border-radius: 5px;">
+        <!-- <option value="" selected disabled hidden>Select Customer Number</option> -->
+        <option *ngFor="let custNumber of customerNumbers" value={{custNumber}}>{{custNumber}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Branch ID: </label>
+      <select [(ngModel)]="customer.branchId" [ngModelOptions]="{standalone: true}"
+        style="width: 850px;height: 35px; border-radius: 5px;">
+        <option *ngFor="let branchId of branchIds" value={{branchId}}>{{branchId}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Opening Balance: </label>
+      <input type="text" class="form-control" id="openingBalance" name="openingBal"
+        [(ngModel)]="customer.openingBalance" style="width: 850px;height: 35px; border-radius: 5px;" #name="ngModel">
+
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Opening Date: </label>
+      <input type="date" class="form-control" id="openingDate" name="openingDate"
+        [(ngModel)]="customer.accountOpeningDate" style="width: 850px;height: 35px; border-radius: 5px;">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Account Type: </label>
+      <select [(ngModel)]="customer.accountType" [ngModelOptions]="{standalone: true}"
+        style="width: 850px;height: 35px; border-radius: 5px;">
+        <!-- <option value="" selected disabled hidden>Select Account Type</option> -->
+        <option *ngFor="let accountType of accountTypes" value={{accountType}}>{{accountType}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Account Status: </label>
+      <select [(ngModel)]="customer.accountStatus" [ngModelOptions]="{standalone: true}"
+        style="width: 850px;height: 35px; border-radius: 5px;">
+        <!-- <option value="" selected disabled hidden>Select Account Status</option> -->
+        <option *ngFor="let accountStatus of AccountStatus" value={{accountStatus}}>{{accountStatus}}</option>
+      </select>
+
+    </div>
+
+
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
+  </form>
 </div>

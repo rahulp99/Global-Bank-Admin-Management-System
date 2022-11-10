@@ -24,6 +24,7 @@ export class AddCustomerComponent implements OnInit {
   customerNumbers: number[] | undefined;
   branchIds: number[] | undefined;
   accountTypes: string[] = ["Savings", "Current", "Fixed Deposit"];
+  AccountStatus: boolean[] = [true, false];
   customerForm!: FormGroup;
 
 
