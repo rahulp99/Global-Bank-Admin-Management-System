@@ -95,6 +95,14 @@ namespace Global_Bank_Admin_Management_System.Controllers
 
         }
 
+        [HttpGet]
+        [Route("getcustomernumbers")]
+        public IActionResult GetCustomerNumbers()
+        {
+            var customerNumbers =_context.CustomerDetails.Select(x => x.CustomerId).ToList();
+            return Ok(customerNumbers);
+        }
+
 
 
 
